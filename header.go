@@ -1,4 +1,4 @@
-package main
+package dbf
 
 type header struct {
 	Version          uint8

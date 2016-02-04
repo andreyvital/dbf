@@ -1,4 +1,4 @@
-package main
+package dbf
 
 // Column represents a table column
 type Column struct {
