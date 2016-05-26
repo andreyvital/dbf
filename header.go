@@ -17,15 +17,11 @@ type header struct {
 }
 
 func (h *header) fieldCount() int {
-	fieldCount := 0
-
 	if h.isFoxPro() {
-		fieldCount = int((h.HeaderLength - 296)) / 32
-	} else {
-		fieldCount = int((h.HeaderLength - 33)) / 32
+		return int((h.HeaderLength - 296)) / 32
 	}
 
-	return fieldCount
+	return int((h.HeaderLength - 33)) / 32
 }
 
 func (h *header) isFoxPro() bool {

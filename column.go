@@ -1,6 +1,5 @@
 package dbf
 
-// Column represents a table column
 type Column struct {
 	Name     string
 	Type     byte

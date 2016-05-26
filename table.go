@@ -5,14 +5,12 @@ import (
 	"time"
 )
 
-// Table represents a dBASE table
 type Table struct {
 	reader  io.ReadSeeker
 	header  *header
 	columns []*Column
 }
 
-// LastModifiedAt returns the last time that the table was modified
 func (t *Table) LastModifiedAt() time.Time {
 	year := int(t.header.Year)
 
@@ -25,17 +23,14 @@ func (t *Table) LastModifiedAt() time.Time {
 	return time.Date(year, time.Month(int(t.header.Month)), int(t.header.Day), 0, 0, 0, 0, time.Local)
 }
 
-// NumberOfRecords returns the number of rows in the table
 func (t *Table) NumberOfRecords() int {
 	return int(t.header.RecordCount)
 }
 
-// NumberOfColumns returns the number of columns in the table
 func (t *Table) NumberOfColumns() int {
 	return len(t.columns)
 }
 
-// ColumnNames returns all column names
 func (t *Table) ColumnNames() []string {
 	names := make([]string, 0, len(t.columns))
 
@@ -46,7 +41,6 @@ func (t *Table) ColumnNames() []string {
 	return names
 }
 
-// ReadAll reads all rows in the table
 func (t *Table) ReadAll() []map[string]interface{} {
 	var records []map[string]interface{}
 

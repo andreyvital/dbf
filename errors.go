@@ -5,5 +5,5 @@ import "errors"
 var (
 	ErrUnexpectedHeaderSize = errors.New("unexpected header size")
 	ErrUnsupportedVersion   = errors.New("unsupported version")
-	ErrInvalidDBF           = errors.New("invalid dBASE file")
+	ErrInvalidDBF           = errors.New("invalid dBase file")
 )
